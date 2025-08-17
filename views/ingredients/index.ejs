@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients</title>
+</head>
+
+<body>
+    <nav>
+        <a href="/recipes">Back</a>
+    </nav>
+    <h3>Add Ingredient</h3>
+    <form action="/ingredients" method="POST">
+        <label for="name">Ingredient Name:</label>
+        <input type="text" name="name" id="name" />
+        <button type="submit">Add Ingredient</button>
+    </form>
+
+    <h3>Ingredients</h3>
+    <% if(ingredients) { %>
+        <ul>
+            <% ingredients.forEach(ing=> { %>
+                <li style="margin-bottom: 10px;">
+                    <%= ing.name %>
+                </li>
+                <% }) %>
+        </ul>
+        <% } %>
+        <a href="/recipes/new"><button>New Recipe</button></a>
+</body>
+
+</html>

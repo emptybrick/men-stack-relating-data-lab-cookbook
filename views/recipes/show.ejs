@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+</head>
+<nav>
+    <a href="/recipes">Back</a>
+</nav>
+
+<body>
+    <h3>
+        <%= recipe.name %>
+    </h3>
+    <h4>
+        <%= owner %>
+    </h4>
+    <p>
+        <%= recipe.instructions %>
+    </p>
+    <% if(ingredients) { %>
+        <ul>
+            <% ingredients.forEach(ing=> { %>
+                <li>
+                    <%= ing.name %>
+                </li>
+                <% }) %>
+        </ul>
+        <% } %>
+            <div style="display: flex; gap: 20px;">
+                <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+                    <button type="submit">
+                        Delete
+                    </button>
+                </form>
+                <a href="/recipes/<%= recipe._id %>/edit"><button>Update</button></a>
+            </div>
+</body>
+
+</html>
